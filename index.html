@@ -12,70 +12,99 @@
         }
         
         body {
-            /* 베이비 핑크 배경색 */
             background-color: #FFE4E1; 
             font-family: 'omyu_pretty', sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start; /* 스크롤을 위해 상단 정렬로 변경 */
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
             color: #555;
+            box-sizing: border-box;
         }
         
-        /* 몽글몽글한 하얀 박스 */
         .container {
             background-color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 40px;
             box-shadow: 0 15px 25px rgba(255, 182, 193, 0.4);
             text-align: center;
-            width: 80%;
-            max-width: 400px;
+            width: 100%;
+            max-width: 450px;
+            margin-top: 50px;
         }
 
-        h2 {
-            font-size: 32px;
-            color: #FF69B4;
-            margin-bottom: 10px;
-        }
+        h2 { font-size: 30px; color: #FF69B4; margin-bottom: 10px; }
+        p { font-size: 20px; margin-bottom: 20px; }
 
-        p {
-            font-size: 22px;
-            margin-bottom: 25px;
-        }
-
+        /* 입력창 & 버튼 */
         input {
             padding: 12px;
             border: 3px solid #FFB6C1;
             border-radius: 20px;
             font-family: 'omyu_pretty', sans-serif;
-            font-size: 20px;
+            font-size: 18px;
             outline: none;
             margin-bottom: 15px;
             text-align: center;
+            width: 80%;
         }
-
         button {
             background-color: #FFB6C1;
             color: white;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 25px;
             border-radius: 20px;
             cursor: pointer;
             font-family: 'omyu_pretty', sans-serif;
-            font-size: 22px;
+            font-size: 20px;
             transition: 0.3s;
         }
+        button:hover { background-color: #FF69B4; transform: scale(1.05); }
 
-        button:hover {
-            background-color: #FF69B4;
-            transform: scale(1.05);
+        /* 추천템 리스트 스타일 */
+        details {
+            margin-bottom: 15px;
+            text-align: left;
+            background: #FFF0F5;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        summary {
+            padding: 15px;
+            font-size: 22px;
+            cursor: pointer;
+            list-style: none;
+            background: #FFB6C1;
+            color: white;
+            font-weight: bold;
+        }
+        .item-card {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px dashed #FFB6C1;
+        }
+        .item-card:last-child { border-bottom: none; }
+        .item-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 15px;
+            margin-right: 15px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+        .item-info { flex: 1; }
+        .item-name { font-size: 18px; color: #333; margin-bottom: 5px; }
+        .item-link {
+            font-size: 16px;
+            color: #FF69B4;
+            text-decoration: none;
+            border-bottom: 1px solid #FF69B4;
         }
 
-        #blog-content {
-            display: none; 
-        }
+        #blog-content { display: none; }
     </style>
 </head>
 <body>
@@ -90,14 +119,35 @@
 
     <div id="blog-content" class="container">
         <h2>🌸 Below the surface 🌸</h2>
-        <p>짜잔! 드디어 들어왔네 환영해 🥰</p>
-        <p>여기에 예쁜 글들을 채워나갈 거야.</p>
+        <p>내가 좋아하는 것들을 모아봤어 🛍️</p>
+
+        <details open>
+            <summary>💖 1만원 이하 소확행</summary>
+            <div class="item-card">
+                <img src="https://via.placeholder.com/100" class="item-img" alt="물건사진">
+                <div class="item-info">
+                    <div class="item-name">귀여운 곰돌이 스티커</div>
+                    <a href="#" class="item-link" target="_blank">구경가기 ➔</a>
+                </div>
+            </div>
+        </details>
+
+        <details>
+            <summary>🎁 3만원 이하 선물추천</summary>
+            <div class="item-card">
+                <img src="https://via.placeholder.com/100" class="item-img" alt="물건사진">
+                <div class="item-info">
+                    <div class="item-name">폭신폭신 구름 파우치</div>
+                    <a href="#" class="item-link" target="_blank">구경가기 ➔</a>
+                </div>
+            </div>
+        </details>
+
     </div>
 
     <script>
         function checkPassword() {
             const pwd = document.getElementById("password-input").value;
-            // 네가 설정한 진짜 비밀번호 1229 적용!
             if (pwd === "1229") {
                 document.getElementById("login-screen").style.display = "none";
                 document.getElementById("blog-content").style.display = "block";
