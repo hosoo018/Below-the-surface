@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Below the surface</title>
+    <style>
+        @font-face {
+            font-family: 'omyu_pretty';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        body {
+            /* 베이비 핑크 배경색 */
+            background-color: #FFE4E1; 
+            font-family: 'omyu_pretty', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #555;
+        }
+        
+        /* 몽글몽글한 하얀 박스 */
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 40px;
+            box-shadow: 0 15px 25px rgba(255, 182, 193, 0.4);
+            text-align: center;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        h2 {
+            font-size: 32px;
+            color: #FF69B4;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        input {
+            padding: 12px;
+            border: 3px solid #FFB6C1;
+            border-radius: 20px;
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 20px;
+            outline: none;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #FFB6C1;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-family: 'omyu_pretty', sans-serif;
+            font-size: 22px;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #FF69B4;
+            transform: scale(1.05);
+        }
+
+        #blog-content {
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="login-screen" class="container">
+        <h2>🔒 비밀의 문</h2>
+        <p>나만의 몽글몽글 공간이야 ☁️🎀</p>
+        <input type="password" id="password-input" placeholder="암호를 대시오!">
+        <br>
+        <button onclick="checkPassword()">열려라 얍 ✨</button>
+    </div>
+
+    <div id="blog-content" class="container">
+        <h2>🌸 Below the surface 🌸</h2>
+        <p>짜잔! 드디어 들어왔네 환영해 🥰</p>
+        <p>여기에 예쁜 글들을 채워나갈 거야.</p>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const pwd = document.getElementById("password-input").value;
+            // 네가 설정한 진짜 비밀번호 1229 적용!
+            if (pwd === "1229") {
+                document.getElementById("login-screen").style.display = "none";
+                document.getElementById("blog-content").style.display = "block";
+            } else {
+                alert("앗! 암호가 틀렸어 😥 다시 생각해 봐!");
+            }
+        }
+    </script>
+</body>
+</html>
